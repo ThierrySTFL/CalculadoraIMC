@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.google.android.material.textfield.TextInputEditText
+import kotlin.math.sqrt
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,6 +21,11 @@ class MainActivity : AppCompatActivity() {
             // get the weight and high value
             val peso = edtPeso.text.toString().toDouble()
             val altura = edtAltura.text.toString().toDouble()
+
+            // calculate the IMC
+            val imc = peso / (sqrt(altura))
+
+
 
 
 
