@@ -3,6 +3,7 @@ package com.comunidadedevspace.imc
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import kotlin.math.sqrt
 
@@ -18,16 +19,17 @@ class MainActivity : AppCompatActivity() {
         // access the button
         val btnCalcular = findViewById<Button>(R.id.btnCalcular)
         btnCalcular.setOnClickListener() {
-            // get the weight and high value
-            val peso = edtPeso.text.toString().toDouble()
-            val altura = edtAltura.text.toString().toDouble()
+            // check if the fields are empty, show a message with a sneackbar
+            if (edtPeso.text.toString().isEmpty() || edtAltura.text.toString().isEmpty()) {
+                Snackbar.make(it, "Preencha todos os campos", Snackbar.LENGTH_LONG).show()
+            } else {
+                // get the weight and high value
+                val peso = edtPeso.text.toString().toDouble()
+                val altura = edtAltura.text.toString().toDouble()
 
-            // calculate the IMC
-            val imc = peso / (sqrt(altura))
-
-
-
-
+                // calculate the IMC
+                val imc = peso / (sqrt(altura))
+            }
 
         }
 
